@@ -1,5 +1,6 @@
 package com.draw.gestdraw;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,6 +16,12 @@ public class Application extends javafx.application.Application {
 
         stage.setScene(scene);
         stage.show();
+
+        Platform.setImplicitExit(true);
+        stage.setOnCloseRequest(event -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     public static void main(String[] args) {

@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.draw.gestdraw.ImageViewPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.draw.gestdraw.ApplicationController">
+      fx:controller="com.draw.gestdraw.MainViewController">
 
-    <VBox>
-        <ImageViewPane fx:id="imageViewPane">
-            <imageView>
-                <ImageView fx:id="gestureView"
-                           pickOnBounds="true"
-                           preserveRatio="true"/>
-            </imageView>
-        </ImageViewPane>
-    </VBox>
+    <VBox alignment="CENTER">
+        <VBox alignment="CENTER">
+            <Label>Duration (seconds)</Label>
+            <TextField text="Duration" fx:id="durationField" alignment="CENTER" maxWidth="100"/>
+        </VBox>
 
-    <VBox>
-        <TextField text="Duration" fx:id="durationField"/>
         <Button text="Select folder" onAction="#onSelectFolderClicked"/>
         <Button text="Start" onAction="#onStartClicked"/>
-        <Button text="Stop" onAction="#onStopClicked"/>
-        <Button text="Next" onAction="#onNextClicked"/>
     </VBox>
 </VBox>
