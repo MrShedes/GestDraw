@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
 import java.util.List;
@@ -15,6 +16,8 @@ public class GestureViewController {
     private ImageView gestureView;
     @FXML
     private Button startStopButton;
+    @FXML
+    private AnchorPane imageViewParent;
 
     private List<File> files;
     private long duration;
@@ -27,6 +30,7 @@ public class GestureViewController {
         this.duration = duration;
 
         startTimer();
+        gestureView.fitHeightProperty().bind(imageViewParent.heightProperty());
     }
 
     @FXML
