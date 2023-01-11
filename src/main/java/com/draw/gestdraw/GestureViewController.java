@@ -1,12 +1,18 @@
 package com.draw.gestdraw;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -53,6 +59,19 @@ public class GestureViewController {
             timer.cancel();
             startTimer();
         }
+    }
+
+    @FXML
+    protected void onBackClicked(ActionEvent event) throws IOException {
+        if (hasTimerStarted) {
+            timer.cancel();
+        }
+
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("views/main.fxml"));
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void showRandomFile() {
